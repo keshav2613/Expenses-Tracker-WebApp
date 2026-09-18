@@ -1,58 +1,93 @@
-![Language](https://img.shields.io/badge/language-Java%20-blue.svg)
-![Technologies](https://img.shields.io/badge/technologies-Spring_boot%20-green.svg)
-![Technologies](https://img.shields.io/badge/technologies-Spring_MVC%20-green.svg)
-![Technologies](https://img.shields.io/badge/technologies-Spring_Security%20-green.svg)
-![Technologies](https://img.shields.io/badge/technologies-Spring_Data_jpa%20-green.svg)
-![Technologies](https://img.shields.io/badge/technologies-Thymeleaf_&_Bootstrap%20-purple.svg)
+# Expense Tracker Web Application 💰
 
-# Expenses-Tracker-WebApp
-## Overview
-The Expenses Tracker App is a robust financial management solution developed using cutting-edge technologies such as Spring Boot, Spring Security, and MySQL. With user authentication and authorization features, users can securely sign up, sign in, and perform CRUD operations on their expenses. The app's intuitive interface, powered by Thymeleaf and Bootstrap, ensures a seamless user experience. The filtering functionality allows users to efficiently organize and analyze their financial data. Explore the power of streamlined expense tracking and financial control with this feature-rich application.<br> (Screenshots below for more illustration)
+A containerized expense management application built with **Java, Spring Boot, Spring Security, MySQL, Thymeleaf, and Docker**.
 
-## Technologies Used
-- Java
-- Spring boot
-- Spring MVC
-- Spring Security
-- Spring Data (JPA)
-- MySQL
-- Thymeleaf
-- Bootstrap
+The application allows authenticated users to manage and track expenses through a web interface while demonstrating a multi-container deployment using Docker Compose.
 
-## Features
-- **User Authentication and Authorization:** Securely sign up, sign in, and access the app with built-in authentication and authorization.
-- **CRUD Operations:** Perform essential financial tracking actions such as adding, reading, updating, and deleting expenses.
-- **Filtering:** Utilize the filtering feature to efficiently sort and view expenses based on various criteria.
+## 🛠️ Technologies
 
-## Getting Started
-1. **Clone the Repository:**
-`git clone https://github.com/keshav2613/Expenses-Tracker-WebApp.git`
+`Java` `Spring Boot` `Spring Security` `Spring Data JPA` `MySQL` `Docker` `Docker Compose` `Thymeleaf` `Bootstrap` `Maven`
 
-2. **Configure Database:**
-Set up MySQL database and update the application.properties file with your database configuration.
+## ✨ Features
 
-3. **Build and Run:**
-Build the project using your preferred IDE or with Maven:
-`mvn clean install`.
+- User authentication and authorization
+- Create, view, update, and delete expenses
+- Filter and organize expense records
+- Persistent MySQL database storage
+- Containerized application deployment
+- Database health checks and service dependencies
 
-4. **Run the application:**
-`java -jar target/expenses-tracker.jar`.
+## 🏗️ Architecture
 
-5. **Access the App:**
-Open your web browser and navigate to `http://localhost:8080`.
+```text
+User
+  ↓
+Spring Boot Application
+  ↓
+Spring Data JPA
+  ↓
+MySQL Database
+```
 
-## ScreenShots
-![Example Image](screenshots/1.png) <br>
-![Example Image](screenshots/2-2.png) <br>
-![Example Image](screenshots/3-3.png) <br>
-![Example Image](screenshots/4-4.png) <br>
-![Example Image](screenshots/5-5.png) <br>
-![Example Image](screenshots/6-6.png) <br>
-![Example Image](screenshots/7.png) <br>
-![Example Image](screenshots/8.png) <br>
+Docker Compose orchestrates the application and database containers on a dedicated Docker network.
 
-## Contributions
-Contributions are welcome! If you find a bug or have suggestions for improvement, feel free to open an issue or create a pull request.
+## 🚀 Run with Docker Compose
 
-## License
+Clone the repository:
+
+```bash
+git clone https://github.com/keshav2613/Expenses-Tracker-WebApp.git
+cd Expenses-Tracker-WebApp
+```
+
+Create your environment file:
+
+```bash
+cp .env.example .env
+```
+
+Update the database password in `.env`, then start the application:
+
+```bash
+docker compose up --build -d
+```
+
+Access the application at:
+
+```text
+http://localhost:8080
+```
+
+Stop the environment:
+
+```bash
+docker compose down
+```
+
+## 🔐 Configuration
+
+Sensitive configuration is supplied through environment variables rather than committed directly to the repository.
+
+Example:
+
+```text
+MYSQL_ROOT_PASSWORD=change-me
+```
+
+## 🐳 Containerized Deployment
+
+The Docker Compose environment contains:
+
+- **expenses-app** — Spring Boot application
+- **expenses-mysql** — MySQL 8 database
+- Persistent database volume
+- Internal Docker network
+- MySQL health check before application startup
+
+## 📸 Application Screenshots
+
+Screenshots of the application interface are available in the [`screenshots`](screenshots/) directory.
+
+## 📄 License
+
 This project is licensed under the MIT License.
